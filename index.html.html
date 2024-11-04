@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contador de tempo</title>
+    <style>
+        /* Basic reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            color: #333;
+        }
+
+        /* Container styling */
+        .container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            text-align: center;
+        }
+
+        /* Header styling */
+        h1 {
+            color: #4CAF50;
+            margin-bottom: 20px;
+        }
+
+        /* Counter styling */
+        .counter {
+            margin: 20px 0;
+        }
+
+        .counter p {
+            margin: 5px 0;
+            font-size: 18px;
+        }
+
+        /* Image styling */
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+            margin-top: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Footer styling */
+        footer {
+            margin-top: 20px;
+            font-size: 14px;
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>O dia em que descobri o que era amor</h1>
+
+        <div class="counter">
+            <p id="elapsed-time"></p>
+        </div>
+
+        <!-- Image Display Section -->
+        <div class="image-container">
+            <h2>Te quero, te desejo, te amo!</h2>
+            <img src="C:\Users\Eduardo\Desktop\teste.site\Edu_Jo.png" alt="C:\Users\Eduardo\Desktop\teste.site\coracao.png">
+            
+        </div>
+
+        <footer>
+            <p>Obrigado por tornar a vida mais alegre, o dia mais colorido, o amor mais amor!</p>
+        </footer>
+    </div>
+
+    <script>
+        // Define the start date and time
+        const startDate = new Date("2024-10-13T04:30:00");
+
+        function updateCounter() {
+            const currentDate = new Date();
+            const elapsedTime = currentDate - startDate; // Difference in milliseconds
+
+            // Calculate days, hours, minutes, and seconds
+            const days = Math.floor(elapsedTime / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((elapsedTime % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((elapsedTime % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((elapsedTime % (1000 * 60)) / 1000);
+
+            // Display the result in the HTML
+            document.getElementById("elapsed-time").innerHTML = 
+                `Tempo do nosso primeiro beijo em 13 de Outubro de 2024, as 4:30hrs:<br><br>` +
+                `Dias: ${days}<br>` +
+                `Horas: ${hours}<br>` +
+                `Minutos: ${minutes}<br>` +
+                `Segundos: ${seconds}`;
+        }
+
+        // Update the counter every second
+        setInterval(updateCounter, 1000);
+    </script>
+</body>
+</html>
